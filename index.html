@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <!-- Boostrap Links  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body id="for-test">
+    <header class="d-flex justify-content-center">
+      <!-- ----------- Navbar  ----------- -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light"
+        style="
+          width: 100%;
+          background-color: transparent;
+          background-image: linear-gradient(
+            to bottom,
+            rgba(112.520718, 44.062154, 249.437846, 1),
+            rgba(112.520718, 44.062154, 249.437846, 0.95)
+          );
+        "
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Task Management</a>
+          <!-- <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main
+      style="
+        background-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.01),
+            rgba(255, 255, 255, 1) 85%
+          ),
+          radial-gradient(
+            ellipse at top left,
+            rgba(13, 110, 253, 0.5),
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at top right,
+            rgba(255, 228, 132, 0.5),
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at center right,
+            rgba(112.520718, 44.062154, 249.437846, 0.5),
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at center left,
+            rgba(214, 51, 132, 0.5),
+            transparent 50%
+          );
+      "
+    >
+      <!-- <h1 class="text-center p-4" style="color: #9ba3eb">Task Management</h1> -->
+      <div>
+        <button
+          type="button"
+          class="btn btn-primary d-flex align-self-center"
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+          style="background-color: #f0c090"
+          ;
+        >
+          Add Task
+        </button>
+        <!-- popup modal -->
+        <div class="modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="text-center">
+                  <div class="modal-title">Add a task</div>
+                </h1>
+              </div>
+              <div class="modal-body">
+                <!--------------------------------form section-------------------------------->
+
+                <form class="needs-validation" novalidate>
+                  <!-- -------------------------- Task Name -------------------------------------->
+                  <div>
+                    <label for="validationTaskName" class="form-label">
+                      Task Name
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="validationTaskName"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please provide a Task Name.
+                    </div>
+                  </div>
+
+                  <!-- -------------------------- Task Description -------------------------------->
+                  <div>
+                    <label for="validationTaskDescription" class="form-label">
+                      Descrption:
+                    </label>
+                    <textarea
+                      class="form-control"
+                      id="validationTaskDescription"
+                      rows="6"
+                      placeholder="Description..."
+                      required
+                    ></textarea>
+                    <div class="invalid-feedback">
+                      Please enter Task description in the textarea.
+                    </div>
+                  </div>
+
+                  <!-- --------------------Assigned to ---------------------------->
+                  <div>
+                    <label for="validationName" class="form-label">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="validationName"
+                      required
+                    />
+                    <div class="invalid-feedback">Please enter name</div>
+                  </div>
+                  <!--------------------------Due Date -------------------->
+
+                  <div class="mb-3">
+                    <label for="validationDate">Due Date: </label>
+                    <input
+                      type="date"
+                      class="form-control mb-3"
+                      id="validationDate"
+                      required
+                    />
+                    <div class="invalid-feedback">Please select due date</div>
+                  </div>
+
+                  <!----------------Status-------------->
+
+                  <div>
+                    <label for="validationStatus" class="form-label"
+                      >Status</label
+                    >
+                    <select class="form-select" id="validationStatus" required>
+                      <option selected></option>
+                      <option value="1">Todo</option>
+                      <option value="2">In progress</option>
+                      <option value="3">Review</option>
+                      <option value="3">Done</option>
+                    </select>
+                    <div class="invalid-feedback">Please select status</div>
+                  </div>
+
+                  <button class="btn btn-primary mt-2" type="submit">
+                    Submit form
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex gap-2 p2 justify-content-around">
+        <!-- --------------------  Todo --------------------------->
+        <div class="w-25 border rounded p-2">
+          <h3 class="text-center pt-2 todo-title">ToDo</h3>
+          <div class="d-flex flex-column" style="max-width: 25rem">
+            <div
+              class="card mb-3"
+              data-bs-toggle="modal"
+              data-bs-target="#myModal2"
+            >
+              <div class="modal" id="myModal2">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Modal title
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">...</div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button type="button" class="btn btn-primary">
+                        Save changes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Page responsive</h5>
+                <h6 class="card-title mb-2">Assigned: Yue</h6>
+
+                <!-- <p class="card-text mb-2">
+                  Description: The page responsive to different screen size
+                  Please choose a username. Please choose a username. Please
+                  choose a username.
+                </p> -->
+                <div class="mb-2">
+                  <i class="fa fa-clock"></i>
+                  <span>26/06/2022</span>
+                </div>
+
+                <div>
+                  <a href="#" class="card-link"
+                    ><i class="fa-solid fa-pen-to-square"></i
+                  ></a>
+                  <a href="#" class="card-link">
+                    <i class="fa fa-trash-can"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3">
+              <div>
+                <div class="card-body">
+                  <h5 class="card-title">Page responsive</h5>
+                  <h6 class="card-title mb-2">Assigned: Yue</h6>
+                  <p class="card-text">
+                    Description: The page responsive to different screen size
+                    and make it to
+                  </p>
+                  <div>
+                    <i class="fa fa-clock"></i>
+                    <span>26/06/2022</span>
+                  </div>
+
+                  <div>
+                    <a href="#" class="card-link"
+                      ><i class="fa-solid fa-pen-to-square"></i
+                    ></a>
+                    <a href="#" class="card-link">
+                      <i class="fa fa-trash-can"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Page responsive</h5>
+                <h6 class="card-title mb-2">Assigned: Yue</h6>
+                <p class="card-text mb-2">
+                  Description: The page responsive to different screen size
+                  Please choose a username. Please choose a username. Please
+                  choose a username.
+                </p>
+                <div class="mb-2">
+                  <i class="fa fa-clock"></i>
+                  <span>26/06/2022</span>
+                </div>
+
+                <div>
+                  <a href="#" class="card-link"
+                    ><i class="fa-solid fa-pen-to-square"></i
+                  ></a>
+                  <a href="#" class="card-link">
+                    <i class="fa fa-trash-can"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Page responsive</h5>
+                <h6 class="card-title mb-2">Assigned: Yue</h6>
+                <p class="card-text mb-2">
+                  Description: The page responsive to different screen size
+                  Please choose a username. Please choose a username. Please
+                  choose a username.
+                </p>
+                <div class="mb-2">
+                  <i class="fa fa-clock"></i>
+                  <span>26/06/2022</span>
+                </div>
+
+                <div>
+                  <a href="#" class="card-link"
+                    ><i class="fa-solid fa-pen-to-square"></i
+                  ></a>
+                  <a href="#" class="card-link">
+                    <i class="fa fa-trash-can"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Page responsive</h5>
+                <h6 class="card-title mb-2">Assigned: Yue</h6>
+                <p class="card-text mb-2">
+                  Description: The page responsive to different screen size
+                  Please choose a username. Please choose a username. Please
+                  choose a username.
+                </p>
+                <div class="mb-2">
+                  <i class="fa fa-clock"></i>
+                  <span>26/06/2022</span>
+                </div>
+
+                <div>
+                  <a href="#" class="card-link"
+                    ><i class="fa-solid fa-pen-to-square"></i
+                  ></a>
+                  <a href="#" class="card-link">
+                    <i class="fa fa-trash-can"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- --------------------  In progress --------------------------->
+        <div class="w-25 border rounded p-2">
+          <h3 class="text-center pt-2 inprogress-title">In Progress</h3>
+          <!-- <div class="d-flex flex-column" style="max-width: 25rem">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Page responsive</h5>
+                <h6 class="card-title mb-2">Assigned: Yue</h6>
+                <p class="card-text">
+                  The page responsive to different screen size
+                </p>
+                <div>
+                  <i class="fa fa-clock"></i>
+                  <span>26/06/2022</span>
+                </div>
+
+                <div>
+                  <a href="#" class="card-link"
+                    ><i class="fa-solid fa-pen-to-square"></i
+                  ></a>
+                  <a href="#" class="card-link">
+                    <i class="fa fa-trash-can"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <!-- --------------------  Review --------------------------->
+        <div class="w-25 border rounded p-2">
+          <h3 class="text-center">Review</h3>
+          <div class="d-flex flex-column" style="max-width: 25rem">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Page responsive</h5>
+                <h6 class="card-title mb-2">Assigned: Yue</h6>
+                <p class="card-text">Description: The page</p>
+                <div>
+                  <i class="fa fa-clock"></i>
+                  <span>26/06/2022</span>
+                </div>
+
+                <div>
+                  <a href="#" class="card-link"
+                    ><i class="fa-solid fa-pen-to-square"></i
+                  ></a>
+                  <a href="#" class="card-link">
+                    <i class="fa fa-trash-can"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- -------------------- Done --------------------------->
+        <div class="w-25 border rounded p-2">
+          <h3 class="text-center">Todo</h3>
+          <div class="d-flex flex-column" style="max-width: 25rem">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Page responsive</h5>
+                <h6 class="card-title mb-2">Assigned: Yue</h6>
+                <p class="card-text text-truncate">
+                  Description: The page responsive to different screen size and
+                  make it toThe page responsive to different screen size and
+                  make it toThe page responsive to different screen size and
+                  make it toThe page responsive to different screen size and
+                  make it toThe page responsive to different screen size and
+                  make it to
+                </p>
+                <button>Read more</button>
+                <div>
+                  <i class="fa fa-clock"></i>
+                  <span>26/06/2022</span>
+                </div>
+
+                <div>
+                  <a href="#" class="card-link"
+                    ><i class="fa-solid fa-pen-to-square"></i
+                  ></a>
+                  <a href="#" class="card-link">
+                    <i class="fa fa-trash-can"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/taskManager.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
