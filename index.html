@@ -151,10 +151,9 @@
               </div>
               <div class="modal-body">
                 <!--------------------------------form section-------------------------------->
-
-                <form class="needs-validation" novalidate>
+                <form action="" class="needs-validation" novalidate>
                   <!-- -------------------------- Task Name -------------------------------------->
-                  <div>
+                  <div class="mb-3">
                     <label for="validationTaskName" class="form-label">
                       Task Name
                     </label>
@@ -168,11 +167,10 @@
                       Please provide a Task Name.
                     </div>
                   </div>
-
                   <!-- -------------------------- Task Description -------------------------------->
-                  <div>
+                  <div class="mb-3">
                     <label for="validationTaskDescription" class="form-label">
-                      Descrption:
+                      Description
                     </label>
                     <textarea
                       class="form-control"
@@ -185,9 +183,8 @@
                       Please enter Task description in the textarea.
                     </div>
                   </div>
-
                   <!-- --------------------Assigned to ---------------------------->
-                  <div>
+                  <div class="mb-3">
                     <label for="validationName" class="form-label">Name</label>
                     <input
                       type="text"
@@ -198,21 +195,20 @@
                     <div class="invalid-feedback">Please enter name</div>
                   </div>
                   <!--------------------------Due Date -------------------->
-
                   <div class="mb-3">
-                    <label for="validationDate">Due Date: </label>
+                    <label for="validationDate" class="form-label"
+                      >Due Date</label
+                    >
                     <input
                       type="date"
-                      class="form-control mb-3"
+                      class="form-control"
                       id="validationDate"
                       required
                     />
                     <div class="invalid-feedback">Please select due date</div>
                   </div>
-
                   <!----------------Status-------------->
-
-                  <div>
+                  <div class="mb-3">
                     <label for="validationStatus" class="form-label"
                       >Status</label
                     >
@@ -225,7 +221,6 @@
                     </select>
                     <div class="invalid-feedback">Please select status</div>
                   </div>
-
                   <button class="btn btn-primary mt-2" type="submit">
                     Submit form
                   </button>
@@ -251,7 +246,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">
-                        Modal title
+                        Task Name: Page responsive
                       </h5>
                       <button
                         type="button"
@@ -260,7 +255,9 @@
                         aria-label="Close"
                       ></button>
                     </div>
-                    <div class="modal-body">...</div>
+                    <div class="modal-body">
+                      <p>discription of the Task</p>
+                    </div>
                     <div class="modal-footer">
                       <button
                         type="button"
@@ -402,30 +399,29 @@
         <!-- --------------------  In progress --------------------------->
         <div class="w-25 border rounded p-2">
           <h3 class="text-center pt-2 inprogress-title">In Progress</h3>
-          <!-- <div class="d-flex flex-column" style="max-width: 25rem">
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Page responsive</h5>
-                <h6 class="card-title mb-2">Assigned: Yue</h6>
-                <p class="card-text">
-                  The page responsive to different screen size
-                </p>
-                <div>
-                  <i class="fa fa-clock"></i>
-                  <span>26/06/2022</span>
-                </div>
-
-                <div>
-                  <a href="#" class="card-link"
-                    ><i class="fa-solid fa-pen-to-square"></i
-                  ></a>
-                  <a href="#" class="card-link">
-                    <i class="fa fa-trash-can"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div> -->
+          <ul
+            class="list-group"
+            data-bs-toggle="modal"
+            data-bs-target="#myModal2"
+          >
+            <li class="list-group-item active">Page responsive</li>
+            <li class="list-group-item">Assigned to: Yue</li>
+            <li class="list-group-item text-truncate">
+              Description:Lorem Ipsum is simply dummy text of the printing and
+              typesetting industry. Lorem Ipsum has been the industry's standard
+              dummy text ever since the 1500s, when an unknown printer took a
+              galley of type and scrambled it to make a type specimen book.
+            </li>
+            <li class="list-group-item">
+              <i class="fa fa-clock"></i> <span>26/06/2022</span>
+            </li>
+            <li class="list-group-item">
+              <a href="#" style="margin-right: 10px"
+                ><i class="fa-solid fa-pen-to-square"></i
+              ></a>
+              <a href="#"><i class="fa fa-trash-can"></i></a>
+            </li>
+          </ul>
         </div>
         <!-- --------------------  Review --------------------------->
         <div class="w-25 border rounded p-2">
@@ -455,7 +451,7 @@
         </div>
         <!-- -------------------- Done --------------------------->
         <div class="w-25 border rounded p-2">
-          <h3 class="text-center">Todo</h3>
+          <h3 class="text-center">Done</h3>
           <div class="d-flex flex-column" style="max-width: 25rem">
             <div class="card mb-3">
               <div class="card-body">
