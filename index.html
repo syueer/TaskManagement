@@ -27,21 +27,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body id="for-test">
+  <body>
     <header class="d-flex justify-content-center">
       <!-- ----------- Navbar  ----------- -->
-      <nav
-        class="navbar navbar-expand-lg navbar-light"
-        style="
-          width: 100%;
-          background-color: transparent;
-          background-image: linear-gradient(
-            to bottom,
-            rgba(112.520718, 44.062154, 249.437846, 1),
-            rgba(112.520718, 44.062154, 249.437846, 0.95)
-          );
-        "
-      >
+      <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Task Management</a>
           <!-- <button
@@ -99,35 +88,7 @@
         </div>
       </nav>
     </header>
-    <main
-      style="
-        background-image: linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.01),
-            rgba(255, 255, 255, 1) 85%
-          ),
-          radial-gradient(
-            ellipse at top left,
-            rgba(13, 110, 253, 0.5),
-            transparent 50%
-          ),
-          radial-gradient(
-            ellipse at top right,
-            rgba(255, 228, 132, 0.5),
-            transparent 50%
-          ),
-          radial-gradient(
-            ellipse at center right,
-            rgba(112.520718, 44.062154, 249.437846, 0.5),
-            transparent 50%
-          ),
-          radial-gradient(
-            ellipse at center left,
-            rgba(214, 51, 132, 0.5),
-            transparent 50%
-          );
-      "
-    >
+    <main>
       <!-- <h1 class="text-center p-4" style="color: #9ba3eb">Task Management</h1> -->
       <div>
         <button
@@ -151,77 +112,69 @@
               </div>
               <div class="modal-body">
                 <!--------------------------------form section-------------------------------->
-                <form action="" class="needs-validation" novalidate>
+                <form action="">
+                  <div class="alert alert-danger" role="alert" id="alertInfo">
+                    A simple danger alert—check it out!
+                  </div>
                   <!-- -------------------------- Task Name -------------------------------------->
                   <div class="mb-3">
-                    <label for="validationTaskName" class="form-label">
-                      Task Name
-                    </label>
+                    <label for="taskName" class="form-label"> Task Name </label>
                     <input
                       type="text"
                       class="form-control"
-                      id="validationTaskName"
+                      id="taskName"
                       required
                     />
-                    <div class="invalid-feedback">
-                      Please provide a Task Name.
-                    </div>
                   </div>
                   <!-- -------------------------- Task Description -------------------------------->
                   <div class="mb-3">
-                    <label for="validationTaskDescription" class="form-label">
+                    <label for="taskDescription" class="form-label">
                       Description
                     </label>
                     <textarea
                       class="form-control"
-                      id="validationTaskDescription"
+                      id="taskDescription"
                       rows="6"
                       placeholder="Description..."
                       required
                     ></textarea>
-                    <div class="invalid-feedback">
-                      Please enter Task description in the textarea.
-                    </div>
                   </div>
                   <!-- --------------------Assigned to ---------------------------->
                   <div class="mb-3">
-                    <label for="validationName" class="form-label">Name</label>
+                    <label for="assignedName" class="form-label">Name</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="validationName"
+                      id="assignedName"
                       required
                     />
-                    <div class="invalid-feedback">Please enter name</div>
                   </div>
                   <!--------------------------Due Date -------------------->
                   <div class="mb-3">
-                    <label for="validationDate" class="form-label"
-                      >Due Date</label
-                    >
+                    <label for="dueDate" class="form-label">Due Date</label>
                     <input
                       type="date"
                       class="form-control"
-                      id="validationDate"
+                      id="dueDate"
                       required
                     />
-                    <div class="invalid-feedback">Please select due date</div>
                   </div>
                   <!----------------Status-------------->
                   <div class="mb-3">
-                    <label for="validationStatus" class="form-label"
-                      >Status</label
-                    >
-                    <select class="form-select" id="validationStatus" required>
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-select" id="status" required>
                       <option selected></option>
                       <option value="1">Todo</option>
                       <option value="2">In progress</option>
                       <option value="3">Review</option>
                       <option value="3">Done</option>
                     </select>
-                    <div class="invalid-feedback">Please select status</div>
                   </div>
-                  <button class="btn btn-primary mt-2" type="submit">
+                  <button
+                    class="btn btn-primary mt-2"
+                    type="submit"
+                    id="submitButton"
+                  >
                     Submit form
                   </button>
                 </form>
@@ -276,66 +229,17 @@
               <div class="card-body">
                 <h5 class="card-title">Page responsive</h5>
                 <h6 class="card-title mb-2">Assigned: Yue</h6>
-
-                <!-- <p class="card-text mb-2">
-                  Description: The page responsive to different screen size
-                  Please choose a username. Please choose a username. Please
-                  choose a username.
-                </p> -->
+                <div class="list-group-item text-truncate mb-2">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book.
+                </div>
                 <div class="mb-2">
                   <i class="fa fa-clock"></i>
-                  <span>26/06/2022</span>
+                  <span class="mr-5">26/06/2022</span>
                 </div>
-
-                <div>
-                  <a href="#" class="card-link"
-                    ><i class="fa-solid fa-pen-to-square"></i
-                  ></a>
-                  <a href="#" class="card-link">
-                    <i class="fa fa-trash-can"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-            <div class="card mb-3">
-              <div>
-                <div class="card-body">
-                  <h5 class="card-title">Page responsive</h5>
-                  <h6 class="card-title mb-2">Assigned: Yue</h6>
-                  <p class="card-text">
-                    Description: The page responsive to different screen size
-                    and make it to
-                  </p>
-                  <div>
-                    <i class="fa fa-clock"></i>
-                    <span>26/06/2022</span>
-                  </div>
-
-                  <div>
-                    <a href="#" class="card-link"
-                      ><i class="fa-solid fa-pen-to-square"></i
-                    ></a>
-                    <a href="#" class="card-link">
-                      <i class="fa fa-trash-can"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Page responsive</h5>
-                <h6 class="card-title mb-2">Assigned: Yue</h6>
-                <p class="card-text mb-2">
-                  Description: The page responsive to different screen size
-                  Please choose a username. Please choose a username. Please
-                  choose a username.
-                </p>
-                <div class="mb-2">
-                  <i class="fa fa-clock"></i>
-                  <span>26/06/2022</span>
-                </div>
-
                 <div>
                   <a href="#" class="card-link"
                     ><i class="fa-solid fa-pen-to-square"></i
@@ -404,7 +308,7 @@
             data-bs-toggle="modal"
             data-bs-target="#myModal2"
           >
-            <li class="list-group-item active">Page responsive</li>
+            <li class="list-group-item">Page responsive</li>
             <li class="list-group-item">Assigned to: Yue</li>
             <li class="list-group-item text-truncate">
               Description:Lorem Ipsum is simply dummy text of the printing and
@@ -485,7 +389,7 @@
         </div>
       </div>
     </main>
-    <script src="js/taskManager.js"></script>
-    <script src="js/index.js"></script>
+    <!-- <script src="js/taskManager.js"></script>
+    <script src="js/index.js"></script> -->
   </body>
 </html>
