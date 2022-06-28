@@ -24,26 +24,34 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
   return html
 }
 
-
-
 class TaskManager {
   constructor(currentId = 0) {
     this.currentId = currentId
     this.tasks = []
   }
 
-  addTask(name, description, assignedTo, dueDate, status = 'todo') {
-    this.currentId++
-    this.tasks.push([this.currentId, name, description, assignedTo, dueDate, status])
+  addTask(curname, curdescription, curassignedTo, curdueDate, curstatus = 'todo') {
+    this.tasks.push([{ currentId: this.currentId++, name: curname, description: curdescription, assignedTo: curassignedTo, dueDate: curdueDate, status: curstatus }])
   }
 
   render() {
     let tasksHtmlList = []
     this.tasks.map(task => {
+
       let currentTask = task;
-      let date = new Date(task.dueDate)
-      date.getDate()
-      // let formattedDate = 
+      console.log(currentTask,)
+      let date = new Date(currentTask.dueDate)
+      console.log(date)
+      // date.getDate()
+      let formattedDate = '02/10/2022'
+      console.log(currentTask[0].name)
+      let taskHtml = createTaskHtml(currentTask[0].name, currentTask[0].description, currentTask[0].assignedTo, formattedDate, currentTask[0].status)
+      console.log(taskHtml)
+      tasksHtmlList.push(taskHtml)
+      console.log(tasksHtmlList)
     })
+    let tasksHtml = tasksHtmlList.join('\n')
+    addTask.innerHTML = tasksHtml
+
   }
 }
