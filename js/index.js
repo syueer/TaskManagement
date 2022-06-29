@@ -1,15 +1,14 @@
 
 let tasks = new TaskManager()
-console.log(tasks)
-// tasks.render()
 
 const taskHtml = createTaskHtml("takingout trash", 'please tak out trash end of the day', 'Yue', '26/07/2022', 'todo')
 console.log(taskHtml)
 const submitButton = document.querySelector('#submitButton')
 document.querySelector('#alertInfo').style.display = 'none'
+
+
 submitButton.onclick = (e) => {
   e.preventDefault()
-
   let newTaskName = document.querySelector('#taskName');
   let newTaskDescription = document.querySelector('#taskDescription');
   let newAssignedName = document.querySelector('#assignedName');
@@ -50,22 +49,3 @@ submitButton.onclick = (e) => {
     newStatus.value = ''
   }
 }
-
-
-
-
-// tasks.addTask('shop', 'shopping things', 'yue', 25 / 03 / 2020)
-// tasks.addTask('shop', 'shopping things', 'yue', 25 / 03 / 2020)
-
-// console.log(tasks)
-// console.log(submit)
-
-// let el = document.querySelector(".submit")
-// el.addEventListener("click", () => {
-//   tasks.addTask()
-// });
-
-// console.log(el)
-// function myFunction() {
-//   document.getElementById("demo").innerHTML = "Hello World";
-// }
