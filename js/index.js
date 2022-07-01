@@ -1,5 +1,7 @@
 
 let tasks = new TaskManager()
+tasks.load()
+tasks.render()
 
 //Selector
 const submitButton = document.querySelector('#submitButton')
@@ -7,13 +9,14 @@ const newTaskName = document.querySelector('#taskName');
 const taskNameErr = document.querySelector('#taskNameErr')
 const newTaskDescription = document.querySelector('#taskDescription');
 const taskDescriptionErr = document.getElementById('taskDescriptionErr')
-// const newAssignedName = document.querySelector('#assignedName');
-
+const newAssignedName = document.querySelector('#assignedName');
+// const assignedNameErr = document.querySelector('#assignedNameErr')
 const newDueDate = document.querySelector('#dueDate');
 const dateErr = document.querySelector('#dateErr')
-// const newStatus = document.querySelector('#status');
+const newStatus = document.querySelector('#status');
 const alertInfo = document.querySelector('#alertInfo')
 // const addTask = document.querySelector('#addTask')
+const deleteTask = document.querySelector('#deleteTask')
 
 alertInfo.style.display = 'none'
 taskNameErr.style.display = 'none';
@@ -80,6 +83,8 @@ newDueDate.onblur = () => {
   validateDate()
 }
 
+
+
 const resetTask = () => {
   newTaskName.value = ''
   newTaskDescription.value = ''
@@ -95,6 +100,7 @@ submitButton.onclick = (e) => {
   let isTaskDateValid = validateDate()
   if (isTaskNameValid && isTaskDescriptionValid && isTaskDateValid) {
     tasks.addTask(newTaskName.value, newTaskDescription.value, newAssignedName.value, newDueDate.value, newStatus.value)
+    tasks.save()
     // console.log(tasks)
     tasks.render()
     resetTask()
@@ -102,3 +108,7 @@ submitButton.onclick = (e) => {
     document.querySelector('#alertInfo').style.display = 'block'
   }
 }
+
+// deleteTask.onclick = () => {
+
+// }

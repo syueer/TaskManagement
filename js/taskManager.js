@@ -31,18 +31,41 @@ class TaskManager {
   }
 
   addTask(curname, curdescription, curassignedTo, curdueDate, curstatus = 'todo') {
-    let taskObject = { currentId: this.currentId++, name: curname, description: curdescription, assignedTo: curassignedTo, dueDate: curdueDate, status: curstatus }
+    let taskObject = { id: this.currentId++, name: curname, description: curdescription, assignedTo: curassignedTo, dueDate: curdueDate, status: curstatus }
     this.tasks.push(taskObject)
+  }
+
+  deleteTask(taskId) {
+    let newTasks = []
+    newTasks = this.tasks.filter(task => {
+      let currentTask = task
+      return task.id !== taskId
+    })
+    this.tasks = newTasks
+  }
+
+  save() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks))
+    localStorage.setItem('currentId', JSON.stringify(this.currentId))
+  }
+
+  load() {
+    if (localStorage.getItem('tasks')) {
+      this.tasks = JSON.parse(localStorage.getItem('tasks'))
+    }
+    if (localStorage.getItem('currentId')) {
+      this.currentId = Number(localStorage.getItem('currentId'))
+    }
   }
 
   render() {
     let tasksHtmlList = []
-    this.tasks.map(task => {
+    tasksHtmlList = this.tasks.map(task => {
       let currentTask = task;
       let date = new Date(currentTask.dueDate)
       let formattedDate = (date.toLocaleDateString())
       let taskHtml = createTaskHtml(currentTask.name, currentTask.description, currentTask.assignedTo, formattedDate, currentTask.status)
-      tasksHtmlList.push(taskHtml)
+      return taskHtml
     })
     let tasksHtml = tasksHtmlList.join('\n')
     addTask.innerHTML = tasksHtml
