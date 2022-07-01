@@ -1,44 +1,91 @@
 
 let tasks = new TaskManager()
 
-const taskHtml = createTaskHtml("takingout trash", 'please tak out trash end of the day', 'Yue', '26/07/2022', 'todo')
-console.log(taskHtml)
+//Selector
 const submitButton = document.querySelector('#submitButton')
-document.querySelector('#alertInfo').style.display = 'none'
+const newTaskName = document.querySelector('#taskName');
+const taskNameErr = document.querySelector('#taskNameErr')
+const newTaskDescription = document.querySelector('#taskDescription');
+const taskDescriptionErr = document.getElementById('taskDescriptionErr')
+// const newAssignedName = document.querySelector('#assignedName');
 
+const newDueDate = document.querySelector('#dueDate');
+const dateErr = document.querySelector('#dateErr')
+// const newStatus = document.querySelector('#status');
+// const alert = document.querySelector('#alertInfo')
+// const addTask = document.querySelector('#addTask')
+
+document.querySelector('#alertInfo').style.display = 'none'
+taskNameErr.style.display = 'none';
+taskDescriptionErr.style.display = 'none';
+dateErr.style.display = 'none'
+
+const validateTaskName = () => {
+  if (newTaskName.value.length === 0) {
+    newTaskName.style.border = '1px solid red';
+    return false
+  } else if (newTaskName.value.length < 8) {
+    taskNameErr.style.display = 'block';
+    newTaskName.style.border = '1px solid red';
+    return false
+  } else {
+    taskNameErr.style.display = 'none';
+    newTaskName.style.border = '1px solid #ced4da';
+    return true
+  }
+}
+newTaskName.onblur = () => {
+  validateTaskName()
+}
+
+//Description validation
+const validateDescription = () => {
+  if (newTaskDescription.value.length === 0) {
+    newTaskDescription.style.border = '1px solid red';
+    return false
+  } else if (newTaskDescription.value.length > 50) {
+    taskDescriptionErr.style.display = 'block';
+    newTaskDescription.style.border = '1px solid red';
+    return false
+  } else {
+    taskDescriptionErr.style.display = 'none';
+    newTaskDescription.style.border = '1px solid #CED4DA';
+    return true
+  }
+}
+newTaskDescription.onblur = () => {
+  validateDescription()
+}
+
+//Date validation
+const validateDate = () => {
+  if (newDueDate.value === '') {
+    newDueDate.style.border = '1px solid red'
+    return false
+  }
+  let inputDate = new Date(newDueDate.value)
+  let currentDate = new Date()
+  currentDate.setHours(0, 0, 0, 0);
+  if (inputDate < currentDate) {
+    dateErr.style.display = 'block';
+    newDueDate.style.border = '1px solid red'
+    return false
+  } else {
+    dateErr.style.display = 'none';
+    newDueDate.style.border = '1px solid #ced4da'
+    return true
+  }
+}
+newDueDate.onblur = () => {
+  validateDate()
+}
 
 submitButton.onclick = (e) => {
   e.preventDefault()
-  let newTaskName = document.querySelector('#taskName');
-  let newTaskDescription = document.querySelector('#taskDescription');
-  let newAssignedName = document.querySelector('#assignedName');
-  let newDueDate = document.querySelector('#dueDate');
-  let newStatus = document.querySelector('#status');
-  let alert = document.querySelector('#alertInfo')
-  let addTask = document.querySelector('#addTask')
-
-  if (newTaskName.value === '') {
-    document.querySelector('#alertInfo').style.display = 'block'
-    document.querySelector('#alertInfo').innerText = 'Please input taskName'
-  } else if (newTaskDescription.value === '') {
-    alert.style.display = 'block'
-    alert.innerText = 'Please input taskDescription'
-  } else if (newAssignedName.value === '') {
-    alert.style.display = 'block'
-    alert.innerText = 'Please input AssignedName'
-  } else if (newDueDate === '') {
-    alert.style.display = 'block'
-    alert.innerText = 'Please input DueDate'
-  } else if (newStatus === '') {
-    alert.style.display = 'block'
-    alert.innerText = 'Please input status'
-  } else {
-    console.log(111)
-    console.log(newTaskName.value)
-    console.log(newTaskDescription.value)
-    console.log(newAssignedName.value)
-    console.log(newDueDate.value)
-    console.log(newStatus.value)
+  let isTaskNameValid = validateTaskName()
+  let isTaskDescriptionValid = validateDescription()
+  let isTaskDateValid = validateDate()
+  if (isTaskNameValid && isTaskDescriptionValid && isTaskDateValid) {
     tasks.addTask(newTaskName.value, newTaskDescription.value, newAssignedName.value, newDueDate.value, newStatus.value)
     console.log(tasks)
     tasks.render()
@@ -47,5 +94,7 @@ submitButton.onclick = (e) => {
     newAssignedName.value = ''
     newDueDate.value = ''
     newStatus.value = ''
+  } else {
+    document.querySelector('#alertInfo').style.display = 'block'
   }
 }

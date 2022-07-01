@@ -125,6 +125,9 @@
                       id="taskName"
                       required
                     />
+                    <div id="taskNameErr" class="text-danger">
+                      Task name should be more than 8 characters
+                    </div>
                   </div>
                   <!-- -------------------------- Task Description -------------------------------->
                   <div class="mb-3">
@@ -138,6 +141,9 @@
                       placeholder="Description..."
                       required
                     ></textarea>
+                    <div id="taskDescriptionErr" class="text-danger">
+                      Enter Less then 50 chars
+                    </div>
                   </div>
                   <!-- --------------------Assigned to ---------------------------->
                   <div class="mb-3">
@@ -158,6 +164,9 @@
                       id="dueDate"
                       required
                     />
+                    <div id="dateErr" class="text-danger">
+                      Please select valid due date
+                    </div>
                   </div>
                   <!----------------Status-------------->
                   <div class="mb-3">
