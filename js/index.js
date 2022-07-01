@@ -12,10 +12,10 @@ const taskDescriptionErr = document.getElementById('taskDescriptionErr')
 const newDueDate = document.querySelector('#dueDate');
 const dateErr = document.querySelector('#dateErr')
 // const newStatus = document.querySelector('#status');
-// const alert = document.querySelector('#alertInfo')
+const alertInfo = document.querySelector('#alertInfo')
 // const addTask = document.querySelector('#addTask')
 
-document.querySelector('#alertInfo').style.display = 'none'
+alertInfo.style.display = 'none'
 taskNameErr.style.display = 'none';
 taskDescriptionErr.style.display = 'none';
 dateErr.style.display = 'none'
@@ -80,6 +80,14 @@ newDueDate.onblur = () => {
   validateDate()
 }
 
+const resetTask = () => {
+  newTaskName.value = ''
+  newTaskDescription.value = ''
+  newAssignedName.value = ''
+  newDueDate.value = ''
+  newStatus.value = ''
+}
+
 submitButton.onclick = (e) => {
   e.preventDefault()
   let isTaskNameValid = validateTaskName()
@@ -87,13 +95,9 @@ submitButton.onclick = (e) => {
   let isTaskDateValid = validateDate()
   if (isTaskNameValid && isTaskDescriptionValid && isTaskDateValid) {
     tasks.addTask(newTaskName.value, newTaskDescription.value, newAssignedName.value, newDueDate.value, newStatus.value)
-    console.log(tasks)
+    // console.log(tasks)
     tasks.render()
-    newTaskName.value = ''
-    newTaskDescription.value = ''
-    newAssignedName.value = ''
-    newDueDate.value = ''
-    newStatus.value = ''
+    resetTask()
   } else {
     document.querySelector('#alertInfo').style.display = 'block'
   }
