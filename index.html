@@ -176,7 +176,7 @@
                       <option value="1">Todo</option>
                       <option value="2">In progress</option>
                       <option value="3">Review</option>
-                      <option value="4">Done</option>
+                      <option value="3">Done</option>
                     </select>
                   </div>
                   <button
@@ -197,190 +197,34 @@
         <!-- --------------------  Todo --------------------------->
         <div class="w-25 border rounded p-2">
           <h3 class="text-center pt-2 todo-title">ToDo</h3>
-          <div class="d-flex flex-column" id="addTodoTask">
-            <div
-              class="card mb-3"
-              data-bs-toggle="modal"
-              data-bs-target="#myModal2"
-            >
-              <div class="modal" id="myModal2">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        Task Name: Page responsive
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      <p>discription of the Task</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button type="button" class="btn btn-primary">
-                        Save changes
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Page responsive</h5>
-                <h6 class="card-title mb-2">Assigned: Yue</h6>
-                <div class="list-group-item text-truncate mb-2">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book.
-                </div>
-                <div class="mb-2">
-                  <i class="fa fa-clock"></i>
-                  <span class="mr-5">26/06/2022</span>
-                </div>
-                <div>
-                  <!-- <p class="card-link"> -->
-                  <i class="fa-solid fa-pen-to-square"></i>
-                  <!-- </p> -->
-                  <!-- <p class="card-link"> -->
-                  <i class="fa fa-trash-can" id="deleteTask"></i>
-                  <!-- </p> -->
-                </div>
-              </div>
-            </div>
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Page responsive</h5>
-                <h6 class="card-title mb-2">Assigned: Yue</h6>
-                <p class="card-text mb-2">
-                  Description: The page responsive to different screen size
-                  Please choose a username. Please choose a username. Please
-                  choose a username.
-                </p>
-                <div class="mb-2">
-                  <i class="fa fa-clock"></i>
-                  <span>26/06/2022</span>
-                </div>
-
-                <div>
-                  <a href="#" class="card-link"
-                    ><i class="fa-solid fa-pen-to-square"></i
-                  ></a>
-                  <a href="#" class="card-link">
-                    <i class="fa fa-trash-can"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Page responsive</h5>
-                <h6 class="card-title mb-2">Assigned: Yue</h6>
-                <p class="card-text mb-2">
-                  Description: The page responsive to different screen size
-                  Please choose a username. Please choose a username. Please
-                  choose a username.
-                </p>
-                <div class="mb-2">
-                  <i class="fa fa-clock"></i>
-                  <span>26/06/2022</span>
-                </div>
-
-                <div>
-                  <a href="#" class="card-link"
-                    ><i class="fa-solid fa-pen-to-square"></i
-                  ></a>
-                  <a href="#" class="card-link">
-                    <i class="fa fa-trash-can"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="d-flex flex-column" id="addTodoTask"></div>
         </div>
         <!-- --------------------  In progress --------------------------->
         <div class="w-25 border rounded p-2">
           <h3 class="text-center pt-2 inprogress-title">In Progress</h3>
-          <div id="addInprogressList"></div>
+          <div
+            class="d-flex flex-column"
+            style="max-width: 25rem"
+            id="addInprogressList"
+          ></div>
         </div>
         <!-- --------------------  Review --------------------------->
         <div class="w-25 border rounded p-2">
-          <h3 class="text-center">Review</h3>
+          <h3 class="text-center pt-2">Review</h3>
           <div
             class="d-flex flex-column"
             style="max-width: 25rem"
             id="addReviewTask"
-          >
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Page responsive</h5>
-                <h6 class="card-title mb-2">Assigned: Yue</h6>
-                <p class="card-text">Description: The page</p>
-                <div>
-                  <i class="fa fa-clock"></i>
-                  <span>26/06/2022</span>
-                </div>
-
-                <div>
-                  <a href="#" class="card-link"
-                    ><i class="fa-solid fa-pen-to-square"></i
-                  ></a>
-                  <a href="#" class="card-link">
-                    <i class="fa fa-trash-can"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          ></div>
         </div>
         <!-- -------------------- Done --------------------------->
         <div class="w-25 border rounded p-2">
-          <h3 class="text-center">Done</h3>
+          <h3 class="text-center pt-2">Done</h3>
           <div
             class="d-flex flex-column"
             style="max-width: 25rem"
             id="addDoneTask"
-          >
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Page responsive</h5>
-                <h6 class="card-title mb-2">Assigned: Yue</h6>
-                <p class="card-text text-truncate">
-                  Description: The page responsive to different screen size and
-                  make it toThe page responsive to different screen size and
-                  make it toThe page responsive to different screen size and
-                  make it toThe page responsive to different screen size and
-                  make it toThe page responsive to different screen size and
-                  make it to
-                </p>
-                <button>Read more</button>
-                <div>
-                  <i class="fa fa-clock"></i>
-                  <span>26/06/2022</span>
-                </div>
-
-                <div>
-                  <a href="#" class="card-link"
-                    ><i class="fa-solid fa-pen-to-square"></i
-                  ></a>
-                  <a href="#" class="card-link">
-                    <i class="fa fa-trash-can"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          ></div>
         </div>
       </div>
     </main>
