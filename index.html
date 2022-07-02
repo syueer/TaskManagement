@@ -176,7 +176,7 @@
                       <option value="1">Todo</option>
                       <option value="2">In progress</option>
                       <option value="3">Review</option>
-                      <option value="3">Done</option>
+                      <option value="4">Done</option>
                     </select>
                   </div>
                   <button
@@ -197,7 +197,7 @@
         <!-- --------------------  Todo --------------------------->
         <div class="w-25 border rounded p-2">
           <h3 class="text-center pt-2 todo-title">ToDo</h3>
-          <div class="d-flex flex-column" id="addTask">
+          <div class="d-flex flex-column" id="addTodoTask">
             <div
               class="card mb-3"
               data-bs-toggle="modal"
@@ -312,34 +312,16 @@
         <!-- --------------------  In progress --------------------------->
         <div class="w-25 border rounded p-2">
           <h3 class="text-center pt-2 inprogress-title">In Progress</h3>
-          <ul
-            class="list-group"
-            data-bs-toggle="modal"
-            data-bs-target="#myModal2"
-          >
-            <li class="list-group-item">Page responsive</li>
-            <li class="list-group-item">Assigned to: Yue</li>
-            <li class="list-group-item text-truncate">
-              Description:Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the industry's standard
-              dummy text ever since the 1500s, when an unknown printer took a
-              galley of type and scrambled it to make a type specimen book.
-            </li>
-            <li class="list-group-item">
-              <i class="fa fa-clock"></i> <span>26/06/2022</span>
-            </li>
-            <li class="list-group-item">
-              <a href="#" style="margin-right: 10px"
-                ><i class="fa-solid fa-pen-to-square"></i
-              ></a>
-              <a href="#"><i class="fa fa-trash-can"></i></a>
-            </li>
-          </ul>
+          <div id="addInprogressList"></div>
         </div>
         <!-- --------------------  Review --------------------------->
         <div class="w-25 border rounded p-2">
           <h3 class="text-center">Review</h3>
-          <div class="d-flex flex-column" style="max-width: 25rem">
+          <div
+            class="d-flex flex-column"
+            style="max-width: 25rem"
+            id="addReviewTask"
+          >
             <div class="card mb-3">
               <div class="card-body">
                 <h5 class="card-title">Page responsive</h5>
@@ -365,7 +347,11 @@
         <!-- -------------------- Done --------------------------->
         <div class="w-25 border rounded p-2">
           <h3 class="text-center">Done</h3>
-          <div class="d-flex flex-column" style="max-width: 25rem">
+          <div
+            class="d-flex flex-column"
+            style="max-width: 25rem"
+            id="addDoneTask"
+          >
             <div class="card mb-3">
               <div class="card-body">
                 <h5 class="card-title">Page responsive</h5>

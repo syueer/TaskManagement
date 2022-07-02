@@ -1,5 +1,5 @@
 
-const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
+const createTaskHtml = (name, description, assignedTo, dueDate) => {
   const html = `
   <div class="card mb-3">
     <div class="card-body">
@@ -10,7 +10,6 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
         <i class="fa fa-clock"></i>
         <span>${dueDate}</span>
       </div>
-      <div>${status}</div>
       <div>
         <a href="#" class="card-link"
           ><i class="fa-solid fa-pen-to-square"></i
@@ -19,6 +18,7 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status) => {
           <i class="fa fa-trash-can"></i
         ></a>
       </div>
+      <button class="done-button">Mark As Done</button>
     </div>
   </div>`
   return html
@@ -58,16 +58,71 @@ class TaskManager {
     }
   }
 
+  taskByStatus() {
+    let tasksListByStatus = {}
+    console.log(this.tasks)
+    for (let i = 0; i < this.tasks.length; i++) {
+      if (!tasksListByStatus[this.tasks[i].status]) {
+        tasksListByStatus[this.tasks[i].status] = [this.tasks[i]]
+
+      } else {
+        tasksListByStatus[this.tasks[i].status].push(this.tasks[i])
+      }
+    }
+    return tasksListByStatus
+  }
+
   render() {
-    let tasksHtmlList = []
-    tasksHtmlList = this.tasks.map(task => {
-      let currentTask = task;
-      let date = new Date(currentTask.dueDate)
-      let formattedDate = (date.toLocaleDateString())
-      let taskHtml = createTaskHtml(currentTask.name, currentTask.description, currentTask.assignedTo, formattedDate, currentTask.status)
-      return taskHtml
-    })
-    let tasksHtml = tasksHtmlList.join('\n')
-    addTask.innerHTML = tasksHtml
+    console.log(this.taskByStatus())
+    let tasksListByStatus = this.taskByStatus()
+    for (const property in tasksListByStatus) {
+      let renderLists = []
+      let taskLists = tasksListByStatus[property]
+      // console.log(taskLists)
+      renderLists = taskLists.map(item => {
+        let currentTask = item;
+        let date = new Date(currentTask.dueDate)
+        let formattedDate = (date.toLocaleDateString())
+        let taskHtml = createTaskHtml(currentTask.name, currentTask.description, currentTask.assignedTo, formattedDate)
+        // console.log(taskHtml)
+        return taskHtml
+      })
+      let tasksHtml = renderLists.join('\n')
+      // console.log(tasksHtml)
+      if (property === '1') {
+        let addTask = document.querySelector('#addTodoTask')
+        addTask.innerHTML = tasksHtml
+      } else if (property === '2') {
+        let addInprogressList = document.querySelector('#addInprogressList')
+        addInprogressList.innerHTML = tasksHtml
+      } else if (property === '3') {
+        let addReviewTask = document.querySelector('#addReviewTask')
+        addReviewTask.innerHTML = tasksHtml
+      } else if (property === '4') {
+        let addDoneTask = document.querySelector('#addDoneTask')
+        addDoneTask.innerHTML = tasksHtml
+      }
+    }
+
   }
 }
+  // let tasksHtmlList = []
+  // let todoTasksHtmlList = []
+  // let inProgressTasksHtmlList = []
+  // let reviewTasksHtmlList = []
+  // let doneTasksHtmlList = []
+
+  // todoTasksHtmlList = this.tasks.map(task => {
+  //   console.log(task)
+  //   let currentTask = task;
+  //   let date = new Date(currentTask.dueDate)
+  //   let formattedDate = (date.toLocaleDateString())
+  //   let taskMapHtml = createTaskHtml(currentTask.name, currentTask.description, currentTask.assignedTo, formattedDate)
+  //   console.log(taskHtml)
+  //   return taskHtml
+  // })
+  //   let tasksHtml = tasksHtmlList.join('\n')
+  //   addTask.innerHTML = tasksHtml
+  // }
+
+
