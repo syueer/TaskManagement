@@ -23,6 +23,20 @@ taskNameErr.style.display = 'none';
 taskDescriptionErr.style.display = 'none';
 dateErr.style.display = 'none'
 
+taskList.onclick = (e) => {
+  if (e.target.classList.contains('delete-button')) {
+    console.log(e.target.parentNode.parentNode)
+    let taskId = e.target.parentNode.parentNode.id
+    // let taskId = (Number(taskIdString))
+    console.log(tasks)
+    tasks.deleteTask(Number(taskId))
+    // let result = tasks.getTaskById(Number(taskId))
+    console.log(tasks)
+    tasks.save()
+    tasks.render()
+  }
+
+}
 taskList.onchange = (e) => {
   let taskId = e.target.parentNode.parentNode.id
   console.log(typeof taskId)

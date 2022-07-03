@@ -3,7 +3,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const html = `
   <div class="card mb-3" id=${id}>
     <div class="card-body">
-      <h5 class="card-title" >${name}</h5>
+      <h5 class="card-title">${name}</h5>
       <h6 class="card-title mb-2">Assigned: ${assignedTo}</h6>
       <p class="card-text">Description: ${description}</p>
       <div>
@@ -17,12 +17,8 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
           <option value="Review">Review</option>
           <option value="Done">Done</option>
         </select>
-        <a href="#" class="card-link"
-          ><i class="fa-solid fa-pen-to-square"></i
-        ></a>
-        <a href="#" class="card-link">
-          <i class="fa fa-trash-can"></i
-        ></a>
+        <button>Edit</button>
+        <button class="delete-button" value=>Delete</button>
       </div>
       
     </div>
@@ -43,10 +39,12 @@ class TaskManager {
 
   deleteTask(taskId) {
     let newTasks = []
+    console.log(111)
     newTasks = this.tasks.filter(task => {
-      let currentTask = task
+      // let currentTask = task
       return task.id !== taskId
     })
+    console.log(newTasks)
     this.tasks = newTasks
   }
 
