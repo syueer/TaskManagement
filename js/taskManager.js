@@ -1,5 +1,5 @@
 
-const createTaskHtml = (id, name, description, assignedTo, dueDate) => {
+const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const html = `
   <div class="card mb-3" id=${id}>
     <div class="card-body">
@@ -10,8 +10,8 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate) => {
         <i class="fa fa-clock"></i>
         <span>${dueDate}</span>
       </div>
-        <select class="form-select" id="status" required>
-          <option selected>currentStatus</option>
+        <select class="form-select">
+          <option selected>${status}</option>
           <option value="Todo">Todo</option>
           <option value="In progress">In progress</option>
           <option value="Review">Review</option>
@@ -65,14 +65,15 @@ class TaskManager {
   }
 
   taskByStatus() {
-    let tasksListByStatus = {}
+    console.log(this.tasks)
+    let tasksListByStatus = { "Todo": [], "In progress": [], "Review": [], "Done": [] }
     // console.log(this.tasks)
     for (let i = 0; i < this.tasks.length; i++) {
-      if (!tasksListByStatus[this.tasks[i].status]) {
-        tasksListByStatus[this.tasks[i].status] = [this.tasks[i]]
-      } else {
-        tasksListByStatus[this.tasks[i].status].push(this.tasks[i])
-      }
+      // if (!tasksListByStatus[this.tasks[i].status]) {
+      //   tasksListByStatus[this.tasks[i].status] = [this.tasks[i]]
+      // } else {
+      tasksListByStatus[this.tasks[i].status].push(this.tasks[i])
+      // }
     }
     return tasksListByStatus
   }
@@ -83,16 +84,14 @@ class TaskManager {
   }
 
   render() {
-    console.log(this.taskByStatus())
     let tasksListByStatus = this.taskByStatus()
     for (const property in tasksListByStatus) {
       let renderLists = []
       let taskLists = tasksListByStatus[property]
       renderLists = taskLists.map(item => {
-        let currentTask = item;
-        let date = new Date(currentTask.dueDate)
+        let date = new Date(item.dueDate)
         let formattedDate = (date.toLocaleDateString())
-        let taskHtml = createTaskHtml(currentTask.id, currentTask.name, currentTask.description, currentTask.assignedTo, formattedDate)
+        let taskHtml = createTaskHtml(item.id, item.name, item.description, item.assignedTo, formattedDate, item.status)
         return taskHtml
       })
       let tasksHtml = renderLists.join('\n')

@@ -2,7 +2,7 @@
 let tasks = new TaskManager()
 tasks.load()
 tasks.render()
-console.log(tasks.getTaskById(0))
+// console.log(tasks.getTaskById(0))
 
 //Selector
 const submitButton = document.querySelector('#submitButton')
@@ -28,8 +28,10 @@ taskDescriptionErr.style.display = 'none';
 dateErr.style.display = 'none'
 
 addTask.onchange = (e) => {
-  let taskId = e.target.parentElement.parentElement.id
+  let taskId = e.target.parentNode.parentNode.id
+  console.log(typeof taskId)
   let result = tasks.getTaskById(Number(taskId))
+  console.log(result)
   result[0].status = e.target.value
   tasks.save()
   tasks.render()
@@ -117,7 +119,6 @@ newDueDate.onblur = () => {
 }
 
 
-
 const resetTask = () => {
   newTaskName.value = ''
   newTaskDescription.value = ''
@@ -134,7 +135,6 @@ submitButton.onclick = (e) => {
   if (isTaskNameValid && isTaskDescriptionValid && isTaskDateValid) {
     tasks.addTask(newTaskName.value, newTaskDescription.value, newAssignedName.value, newDueDate.value, newStatus.value)
     tasks.save()
-    // console.log(tasks)
     tasks.render()
     resetTask()
   } else {
