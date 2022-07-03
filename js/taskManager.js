@@ -65,13 +65,8 @@ class TaskManager {
   taskByStatus() {
     console.log(this.tasks)
     let tasksListByStatus = { "Todo": [], "In progress": [], "Review": [], "Done": [] }
-    // console.log(this.tasks)
     for (let i = 0; i < this.tasks.length; i++) {
-      // if (!tasksListByStatus[this.tasks[i].status]) {
-      //   tasksListByStatus[this.tasks[i].status] = [this.tasks[i]]
-      // } else {
       tasksListByStatus[this.tasks[i].status].push(this.tasks[i])
-      // }
     }
     return tasksListByStatus
   }

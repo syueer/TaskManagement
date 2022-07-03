@@ -1,8 +1,6 @@
-
 let tasks = new TaskManager()
 tasks.load()
 tasks.render()
-// console.log(tasks.getTaskById(0))
 
 //Selector
 const submitButton = document.querySelector('#submitButton')
@@ -25,18 +23,13 @@ dateErr.style.display = 'none'
 
 taskList.onclick = (e) => {
   if (e.target.classList.contains('delete-button')) {
-    console.log(e.target.parentNode.parentNode)
     let taskId = e.target.parentNode.parentNode.id
-    // let taskId = (Number(taskIdString))
-    console.log(tasks)
     tasks.deleteTask(Number(taskId))
-    // let result = tasks.getTaskById(Number(taskId))
-    console.log(tasks)
     tasks.save()
     tasks.render()
   }
-
 }
+
 taskList.onchange = (e) => {
   let taskId = e.target.parentNode.parentNode.id
   console.log(typeof taskId)
@@ -107,7 +100,6 @@ newDueDate.onblur = () => {
   validateDate()
 }
 
-
 const resetTask = () => {
   newTaskName.value = ''
   newTaskDescription.value = ''
@@ -130,7 +122,3 @@ submitButton.onclick = (e) => {
     document.querySelector('#alertInfo').style.display = 'block'
   }
 }
-
-// deleteTask.onclick = () => {
-
-// }
