@@ -16,43 +16,18 @@ const newDueDate = document.querySelector('#dueDate');
 const dateErr = document.querySelector('#dateErr')
 const newStatus = document.querySelector('#status');
 const alertInfo = document.querySelector('#alertInfo')
-const addTask = document.querySelector('#addTodoTask')
-const addInprogress = document.querySelector('#addInprogressList')
-const addReviewTask = document.querySelector('#addReviewTask')
-const addDoneTask = document.querySelector('#addDoneTask')
 const deleteTask = document.querySelector('#deleteTask')
-
+const taskList = document.querySelector('#taskList')
 alertInfo.style.display = 'none'
 taskNameErr.style.display = 'none';
 taskDescriptionErr.style.display = 'none';
 dateErr.style.display = 'none'
 
-addTask.onchange = (e) => {
+taskList.onchange = (e) => {
   let taskId = e.target.parentNode.parentNode.id
   console.log(typeof taskId)
   let result = tasks.getTaskById(Number(taskId))
   console.log(result)
-  result[0].status = e.target.value
-  tasks.save()
-  tasks.render()
-}
-addInprogress.onchange = (e) => {
-  let taskId = e.target.parentElement.parentElement.id
-  let result = tasks.getTaskById(Number(taskId))
-  result[0].status = e.target.value
-  tasks.save()
-  tasks.render()
-}
-addReviewTask.onchange = (e) => {
-  let taskId = e.target.parentElement.parentElement.id
-  let result = tasks.getTaskById(Number(taskId))
-  result[0].status = e.target.value
-  tasks.save()
-  tasks.render()
-}
-addDoneTask.onchange = (e) => {
-  let taskId = e.target.parentElement.parentElement.id
-  let result = tasks.getTaskById(Number(taskId))
   result[0].status = e.target.value
   tasks.save()
   tasks.render()
